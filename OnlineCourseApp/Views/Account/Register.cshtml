@@ -1,0 +1,51 @@
+﻿@model RegisterVM
+@{
+    ViewData["Title"] = "Register";
+    Layout = "_HomepageHeader";
+}
+
+<div class="registration">
+    <div class="registration__form">
+        <form asp-controller="Account" asp-action="Register" method="post">
+            <h4 class="registration__form--heading">Kreiraj nalog</h4>
+
+            <div class="registration__form--group">
+                <label asp-for="FirstName" class="registration__form--label"></label>
+                <input asp-for="FirstName" class="registration__form--input" />
+                <span asp-validation-for="FirstName" class="registration__form--error"></span>
+            </div>
+            <div class="registration__form--group">
+                <label asp-for="LastName" class="registration__form--label"></label>
+                <input asp-for="LastName" class="registration__form--input" />
+                <span asp-validation-for="LastName" class="registration__form--error"></span>
+            </div>
+            <div class="registration__form--group">
+                <label asp-for="UserName" class="registration__form--label"></label>
+                <input asp-for="UserName" class="registration__form--input" />
+                <span asp-validation-for="UserName" class="registration__form--error"></span>
+            </div>
+            <div class="registration__form--group">
+                <label asp-for="Email" class="registration__form--label"></label>
+                <input asp-for="Email" class="registration__form--input" />
+                <span asp-validation-for="Email" class="registration__form--error"></span>
+            </div>
+            <div class="registration__form--group">
+                <label asp-for="Password" class="registration__form--label"></label>
+                <input asp-for="Password" class="registration__form--input" />
+                <span asp-validation-for="Password" class="registration__form--error"></span>
+            </div>
+            <div class="registration__form--group">
+                <label asp-for="ConfirmPassword" class="registration__form--label"></label>
+                <input asp-for="ConfirmPassword" class="registration__form--input" />
+                <span asp-validation-for="ConfirmPassword" class="registration__form--error"></span>
+            </div>
+            <button type="submit" class="registration__form--button">Registracija</button>
+        </form>
+    </div>
+</div>
+<script>
+
+</script>
+@*@section Scripts {
+        <partial name="../Shared/_ValidationScriptsPartial" />
+    }*@

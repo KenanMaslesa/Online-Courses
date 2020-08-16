@@ -1,0 +1,38 @@
+﻿<label for="check">
+    <i class="fas fa-bars" id="sidebar_btn"></i>
+</label>
+<div class="left_area">
+    <h3>Online <span>COURSES</span></h3>
+</div>
+<div class="right_area">
+    @if (_signInManager.IsSignedIn(User))
+    {
+        AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+        var permission = _userManager.GetRolesAsync(user);
+        var k = HttpContextAccessor.HttpContext.Session.GetString("permission");
+
+        <span class="logout">
+            Dobrodošli, <span id="username">@user.FirstName @user.LastName</span>
+            <a asp-controller="Account" asp-action="Logout" class="btn btn-blue btn-sm">Odjava</a>
+        </span>
+        if (permission.Result.Count() > 1)
+        {
+            <div class="dropdown">
+                <i class="icon-user dropdown-toggle" type="button" data-toggle="dropdown">
+                    <span class="caret"></span>
+                </i>
+                <ul class="dropdown-menu">
+                    <span>Korisnički pristup</span>
+                    @foreach(var x in permission.Result)
+                    {
+                    <li >
+                        <i class="fa fa-check-circle @Html.IsSelected(k,x)" id="check_circle"></i><a asp-controller="Dashboard" asp-action="Home" asp-route-permission="@x" >@x</a>
+                    </li>
+
+                    }
+                    
+                </ul>
+            </div>
+        }
+    }
+</div>

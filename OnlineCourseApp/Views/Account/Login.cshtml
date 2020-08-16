@@ -1,0 +1,108 @@
+﻿@model LoginVM
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link href="~/vendor/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/fonts/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/fonts/iconic/css/material-design-iconic-font.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/vendor/animate/animate.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/vendor/css-hamburgers/hamburgers.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/vendor/animsition/css/animsition.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/vendor/select2/select2.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/vendor/daterangepicker/daterangepicker.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/css/login1.css" rel="stylesheet" />
+    <link href="~/css/login2.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+</head>
+<body>
+
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+                <form asp-controller="Account" asp-action="Login" method="post" class="login100-form validate-form">
+                    <span class="login100-form-title p-b-49">
+                        Login
+                    </span>
+
+
+
+                    <div class="wrap-input100 validate-input m-b-23" data-validate="Korisničko ime je obavezno polje">
+                        <span class="label-input100">Korisničko ime</span>
+                        <input asp-for="Username" class="input100" type="text" placeholder="Unesite korisničko ime" autocomplete="off">
+                        <span class="focus-input100" data-symbol="&#xf206;"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Lozinka je obavezno polje">
+                        <span class="label-input100">Lozinka</span>
+                        <input class="input100" asp-for="Password" placeholder="Unesite lozinku">
+                        <span class="focus-input100" data-symbol="&#xf190;"></span>
+                    </div>
+
+                    <div asp-validation-summary="All" style="text-align: center; margin-top: 10px;" class="text-danger"></div>
+
+                    <div class="text-right p-t-8 p-b-31">
+                        <a href="@Url.Action("ForgotPassword", "Account")">
+                            Zaboravili ste lozinku?
+                        </a>
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <div class="wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button class="login100-form-btn" type="submit" id="log_in" data-loading-text="Prijava korisnika...">
+                                Prijava
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex-col-c p-t-155">
+
+                        <a href="@Url.Action("Register", "Account")" class="txt2">
+                            Registrujte se
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="dropDownSelect1"></div>
+
+    <!--===============================================================================================-->
+    <script src="~/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/animsition/js/animsition.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/select2/select2.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/daterangepicker/moment.js"></script>
+    <script src="~/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/js/login.js"></script>
+
+</body>
+</html>

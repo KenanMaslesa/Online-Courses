@@ -1,0 +1,57 @@
+﻿@model CourseSectionAddVM
+@{
+    var courseType = (List<SelectListItem>)ViewData["courseType"];
+    var courseParent = (List<SelectListItem>)ViewData["courseParent"];
+}
+
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Dodaj sekciju kursa</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <form asp-action="Dodaj" asp-controller="CourseSection" method="post" id="forma">
+            <div class="modal-body">
+                <input asp-for="CourseSectionID" style="display:none" />
+                <div class="form-group">
+                    <label>Naziv sekcije</label>
+                    <input asp-for="Name" class="form-control" name="Name" id="Name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>Opis</label>
+                    <input asp-for="Description" class="form-control" name="Description" id="Opis" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+
+                </div>
+
+                <div class="form-group">
+                    <label>Tip kursa</label>
+                    <div style="display:flex">
+                    <select asp-for="CourseTypeID" asp-items="courseType" class="form-control">
+                        <option disabled>(Odaberite tip kursa)</option>
+                    </select>
+                <a href="@Url.Action("Prikaz","CourseType")" class="cursor-pointer btn btn-primary btn-popup" style="margin-left:1rem">+</a>         
+                    </div>
+                    <span asp-validation-for="CourseTypeID" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Glavna oblast</label>
+                    <select asp-for="CourseParentID" asp-items="courseParent" class="form-control">
+                        <option>(Odaberite glavnu oblast)</option>
+                    </select>
+                    <span asp-validation-for="CourseParentID" class="text-danger"></span>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Zatvori</button>
+                    <input type="submit" class="btn btn-primary" value="Sačuvaj" id="submit">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

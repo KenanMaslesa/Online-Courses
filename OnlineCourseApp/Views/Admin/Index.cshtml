@@ -1,0 +1,68 @@
+﻿@model RoleNewVM
+@{
+    ViewData["Title"] = "CreateRole";
+    IEnumerable<AppRole> roles = ViewBag.Roles;
+}
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="@Url.Action("Home", "Dashboard")">Radna ploča</a>
+                <i class="fa fa-arrow-circle-right"></i>
+            </li>
+            <li>
+                <span>Korisničke permisije</span>
+            </li>
+        </ul>
+    </div>
+    <h1 class="page-title">
+        Korisničke permisije
+        <small>na sistemu</small>
+    </h1>
+
+
+<table class="table table-striped table-bordered col-md-6">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th class="text-center"> Uloga</th>
+            <th class="text-center">
+                Opcije
+                <i class="fa fa-plus-circle btn-popup" data-toggle="popover" data-trigger="hover"  data-container="body" data-placement="top" data-content="Dodavanje permisije" data-modaltitle="Dodavanje permisije" data-url="@Url.Action("CreateRole","Admin")"></i>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in roles)
+        {
+            <tr>
+                <td>@x.Id</td>
+                <td class="text-center">@x.Name</td>
+                <td class="text-center">
+                    <i class="btn-popup icon-note"  data-toggle="popover" data-trigger="hover"  data-container="body" data-placement="left" data-content="Uređivanje permisije" data-modaltitle="Uređivanje permisije" data-url="@Url.Action("EditRole","Admin",new { roleId=x.Id})"></i>
+                    <a class="icon-trash" data-toggle="popover" data-trigger="hover"  data-container="body" data-placement="right" data-content="Brisanje permisije" href="@Url.Action("DeleteRole","Admin",new { roleId=x.Id})"></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<style>
+    .icon-note, .fa-plus-circle, .icon-trash {
+        cursor: pointer;
+        padding:5px;
+    }
+
+    .icon-trash {
+        color: red;
+        text-decoration:none;
+    }
+    .icon-trash:hover {
+        color: red;
+        text-decoration: none;
+    }
+
+    table {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5%;
+    }
+</style>

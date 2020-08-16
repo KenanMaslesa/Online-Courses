@@ -1,0 +1,57 @@
+﻿@model List<CityVM>
+@{
+    var brojac = 0;
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Redni broj</th>
+            <th scope="col">Naziv opštine</th>
+            <th scope="col">Regija</th>
+            <th scope="col">Poštanski broj</th>
+            <th scope="col">Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (CityVM x in Model)
+        {
+            @if (x.Description != null)
+            {
+                <tr>
+                    <th scope="row"> @(++brojac)  </th>
+                    <td>  @x.Description </td>
+                    <td>  @x.Region </td>
+                    <td>  @x.ZipCode </td>
+                    <td>
+                        <a href="/City/Obrisi?cityID=@x.CityID" class="btn btn-primary">Obriši</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<br />
+<button type="button" class="btn btn-primary" id="btn-popup">
+    Dodaj opštinu
+</button>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-url="@Url.Action("DodajForma","City")">
+</div>
+
+
+@section Scripts {
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btn-popup").click(function () {
+            event.preventDefault();
+            var url = $("#exampleModalCenter").data('url');
+            jQuery.get(url, function (data) {
+
+                $("#exampleModalCenter").html(data);
+                $("#exampleModalCenter").modal('show');
+
+            })
+        })
+    });
+</script>
+}

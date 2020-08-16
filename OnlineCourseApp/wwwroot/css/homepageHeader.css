@@ -1,0 +1,81 @@
+﻿.navbar-collapse {
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(231,239,246,0.4);
+    font-size: 1.1rem;
+    box-shadow: 0 10px 21px -9px rgb(231,239,246);
+    align-items: center;
+    padding: 0rem 7.5rem;
+    font-family: Open Sans;
+    font-weight: 500;
+}
+.nav li {
+    text-decoration: none;
+    list-style-type: none;
+    padding: 0 2.813rem 0 0;
+    display:inline-block;
+}
+.nav li a {
+        text-decoration: none;
+        color: #4b86b4;
+        position:relative;
+ }
+.nav li a:hover{
+            color: #2a4d69;
+ }
+    .nav li a:hover:after {
+        content: "";
+        color: #fff;
+        display: inline-block;
+        position: absolute;
+        top: 35px;
+        left: 2px;
+        width: 69.5px;
+        margin: 0 auto;
+        border-bottom: 2px solid #2a4d69;
+        animation-name: widthExpand_1;
+        animation-duration: 0.7s;
+        color: #2a4d69;
+    }
+
+ @keyframes widthExpand_1 {
+      from {
+        width: 10px;
+    }
+
+    to {
+        width: 69.5px;
+    }
+}
+
+.nav__buttons--login {
+    border: 2px solid #4b86b4;
+    color: #4b86b4;
+    padding: 0.625rem 1.25rem;
+    margin-right: 10px;
+    display: inline-block;
+    text-decoration: none;
+    list-style-type: none;
+    border-radius: 16px;
+}
+    .nav__buttons--login a {
+        text-decoration: none;
+        color: #4b86b4;
+    }
+.nav__buttons--signup a {
+    text-decoration: none;
+    color: #e7eff6;
+}
+.nav__buttons--signup {
+    background-color: #4b86b4;
+    color: #e7eff6;
+    border: 10px;
+    border: 0.75rem 1.25rem;
+    display: inline-block;
+    text-decoration: none;
+    list-style-type: none;
+    border-radius: 16px;
+    padding: 0.625rem 1.25rem;
+}

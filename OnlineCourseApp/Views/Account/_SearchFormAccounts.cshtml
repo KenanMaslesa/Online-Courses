@@ -1,0 +1,41 @@
+﻿@model AccountsSearchFormVM
+<div class="container-fluid">
+    <form method="get" asp-controller="Account" asp-action="Accounts">
+        <div class="row">
+            <div class="col-md-3">
+                @Html.LabelFor(x => x.Username)
+                @Html.TextBoxFor(x => x.Username, new { @class="form-control", @placeholder = "Korisničko ime" })
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(x => x.Name)
+                @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @placeholder = "Ime ili prezime" })
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(x => x.Email)
+                @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @placeholder = "Email" })
+            </div>
+          
+            <div class="col-md-3">
+                <button type="submit" class="pull-right btn btn-primary" id="search_btn">Pretraži</button>
+
+            </div>
+        </div>
+
+    </form>
+</div>
+<style>
+    label{
+        margin-bottom:0px;
+    }
+    .container-fluid {
+        padding: 7px 15px 18px 15px;
+        background: white;
+        margin-bottom: 25px;
+        border: 1px solid #dee2e6;
+    }
+    #search_btn {
+        margin-top: 21px;
+        width: 100%;
+    }
+
+</style>

@@ -1,0 +1,13 @@
+﻿@model RoleNewVM
+<div class="col-md-12">
+    <form asp-controller="Admin" asp-action="CreateRole" method="post">
+        <div class="form-group">
+            <label asp-for="RoleName"></label>
+            <input asp-for="RoleName" class="form-control" autocomplete="off" />
+            <span asp-validation-for="RoleName" class="text-danger"></span>
+        </div>
+        <div class="form-group text-center">
+            <input type="submit" style="width:100%" class="btn btn-primary" value="Sačuvaj" id="submit">
+        </div>
+    </form>
+</div>

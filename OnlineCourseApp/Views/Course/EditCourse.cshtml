@@ -1,0 +1,42 @@
+﻿@model CourseEditVM
+<div class="col-md-12">
+    <form asp-controller="Course" asp-action="EditCourse" method="post">
+        <div class="form-group">
+            <label asp-for="CourseID"></label>
+            <input asp-for="CourseID" class="form-control" readonly />
+        </div>
+        <div class="form-group">
+            <label asp-for="CourseName"></label>
+            <input asp-for="CourseName" class="form-control" autocomplete="off" />
+            <span asp-validation-for="CourseName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label>Početak kursa</label>
+            <input asp-for="Start" type="date" class="form-control" name="Start" id="pocetakKrsa" />
+            <span asp-validation-for="Start" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label>Kraj kursa</label>
+            <input asp-for="End" type="date" class="form-control" name="End" id="krajKursa" />
+            <span asp-validation-for="End" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label>Bilješka</label>
+            <input asp-for="Notes" type="date" class="form-control" name="Notes" id="biljeska" />
+            <span asp-validation-for="Notes" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label>Omogući sesije kursa</label>
+            <input asp-for="EnableCourseSessions" type="checkbox" class="form-control" name="EnableCourseSessions" id="sesijeKursa" />
+            <span asp-validation-for="EnableCourseSessions" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label>Omogući video snimanje</label>
+            <input asp-for="EnableVideoRecording" type="checkbox" class="form-control" name="EnableVideoRecording" id="snimanjeKursa" />
+            <span asp-validation-for="EnableVideoRecording" class="text-danger"></span>
+        </div>
+        <div class="form-group text-center">
+            <input type="submit" style="width:100%" class="btn btn-primary" value="Sačuvaj" id="submit">
+        </div>
+    </form>
+</div>

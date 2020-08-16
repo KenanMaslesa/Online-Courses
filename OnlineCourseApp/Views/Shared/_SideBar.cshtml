@@ -1,0 +1,24 @@
+﻿@{
+    AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+    var permission = HttpContextAccessor.HttpContext.Session.GetString("permission");
+    if (permission != null)
+    {
+        if (permission != "Admin")
+        {
+            <center>
+                <img src="~/img/user.png" class="profile_image" alt="" />
+            </center>
+        }
+        @await Html.PartialAsync($"~/Views/Shared/Navigation/_{permission}Nav.cshtml")
+    }
+
+    else if (User.IsInRole("Admin"))
+        @await Html.PartialAsync("~/Views/Shared/Navigation/_AdminNav.cshtml")
+
+        else if (User.IsInRole("Profesor"))
+            @await Html.PartialAsync("~/Views/Shared/Navigation/_ProfesorNav.cshtml")
+
+            else if (User.IsInRole("Student"))
+                @await Html.PartialAsync("~/Views/Shared/Navigation/_StudentNav.cshtml")
+}

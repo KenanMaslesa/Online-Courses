@@ -1,0 +1,89 @@
+﻿@model List<CourseSectionPreviewVM>
+@{
+    var brojac = 0;
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Redni broj</th>
+            <th scope="col">Oblast kursa</th>
+            <th scope="col">Opis</th>
+            <th scope="col">Tip kursa</th>
+            <th scope="col">Glavna oblast</th>
+            <th scope="col">Lista kurseva</th>
+            <th scope="col">Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (CourseSectionPreviewVM x in Model)
+        {
+
+            @if (x.Name != null)
+            {
+                <tr>
+                    <th scope="row"> @(++brojac)  </th>
+                    <td>  @x.Name </td>
+                    <td>  @x.Description </td>
+                    <td>  @x.CourseType </td>
+                    <td>  @x.CourseParent </td>
+                    <td>
+                        <a data-url="@Url.Action("Prikaz","Course", new { courseSectionID=x.CourseSectionID}  @*new { courseList=x.Courses}*@)" data-modal-header="none" class="btn btn-primary btn-popup">Prikaži</a>
+         
+                    </td>
+                    <td>
+                        <a href="/CourseSection/Obrisi?courseSectionID=@x.CourseSectionID" class="btn btn-primary">Obriši</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<br />
+    <button type="button" class="btn btn-primary" id="btn-popup">
+            Dodaj sekciju
+        </button>
+        <button type="button" class="btn btn-primary" id="btn-popup2">
+            Dodaj tip kursa
+        </button>
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-url="@Url.Action("DodajForma","CourseSection")" style="z-index: 1400;">
+        </div>
+        <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-url="@Url.Action("DodajForma","CourseType")">
+        </div>
+         
+        @section Scripts {
+            <script type="text/javascript">
+
+                @*$(document).ready(function () {
+                    var jsArray = @Html.Raw(Json.Serialize(Model));
+                    console.log(jsArray);
+                })*@
+                $(document).ready(function () {
+
+                    $("#btn-popup").click(function () {
+                        event.preventDefault();
+                        var url = $("#exampleModalCenter").data('url');
+                        jQuery.get(url, function (data) {
+
+                            $("#exampleModalCenter").html(data);
+                            $("#exampleModalCenter").modal('show');
+
+                        })
+                    })
+                });
+                $(document).ready(function () {
+                    $("#btn-popup2").click(function () {
+                        event.preventDefault();
+                        var url = $("#exampleModalCenter2").data('url');
+                        jQuery.get(url, function (data) {
+
+                            $("#exampleModalCenter2").html(data);
+                            $("#exampleModalCenter2").modal('show');
+
+
+                        })
+                    })
+                });
+
+            </script>
+        }

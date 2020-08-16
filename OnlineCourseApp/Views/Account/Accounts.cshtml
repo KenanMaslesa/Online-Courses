@@ -1,0 +1,74 @@
+﻿@model List<AccountsVM>
+@using Microsoft.VisualBasic
+@{
+    ViewData["Title"] = "Accounts";
+}
+<style>
+</style>
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("Home", "Dashboard")">Radna ploča</a>
+            <i class="fa fa-arrow-circle-right"></i>
+        </li>
+        <li>
+            <span>Korisnički računi</span>
+        </li>
+    </ul>
+</div>
+<h1 class="page-title">
+    Korisnički računi
+    <small>na sistemu</small>
+</h1>
+@await Html.PartialAsync("_SearchFormAccounts", 
+    new AccountsSearchFormVM { Username = ViewBag.UserName, Name = ViewBag.Name,Email = ViewBag.Email}) 
+
+<table class="table table-striped table-bordered" style="background:white;">
+    <thead>
+        <tr>
+            <th class="text-center">Ime i prezime</th>
+            <th class="text-center">Korisničko ime</th>
+            <th class="text-center">Email</th>
+            <th class="text-center">Zadnji pristup</th>
+            <th class="text-center">Permisija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+        <tr data-url="@Url.Action("EditUsers","Admin",new {userId=x.ID })" data-modal-header="none" class="cursor-pointer btn-popup">
+            <td class="text-center">@x.FullName</td>
+            <td class="text-center">@x.Username</td>
+            <td class="text-center">@x.Email</td>
+            <td class="text-center">
+                @x.LastLoginDate.ToString("dd.MM.yyyy HH:mm")
+
+                @if (DateAndTime.DateDiff(DateInterval.Day, x.LastLoginDate, DateTime.Now)==0)
+                {
+                    <span class="lastlogin">(danas)</span>
+                }
+                else if (DateAndTime.DateDiff(DateInterval.Day, x.LastLoginDate, DateTime.Now)==1)
+                {
+                    <span class="lastlogin">(jučer)</span>
+                }
+                else
+                {
+            <span class="lastlogin">
+                (prije @DateAndTime.DateDiff(DateInterval.Day, x.LastLoginDate, DateTime.Now) dana)
+            </span>
+                 
+                }
+            <span>
+            </span>
+            </td>
+            <td class="text-center">@string.Join(", ", x.Permision)</td>
+
+        </tr>
+        }
+    </tbody>
+</table>
+<style>
+    .lastlogin{
+        color:darkgrey;
+    }
+</style>
