@@ -4,42 +4,76 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="~/css/homepageHeader.css" rel="stylesheet" type="text/css" />
-    <link href="~/css/globalHomepage.css" rel="stylesheet" type="text/css" />
-    <link href="~/css/registration.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/homepageHeader.css" rel="stylesheet" />
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            @*<div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>*@
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("NASLOVNA", "Index", "GlobalHomepage")</li>
-                    <li>@Html.ActionLink("O NAMA", "", "")</li>
-                    <li>@Html.ActionLink("OBAVIJESTI", "", "")</li>
-                    <li>@Html.ActionLink("KONTAKT", "", "")</li>
-                </ul>
-                <ul class="nav__buttons">
-                    <li class="nav__buttons--login">@Html.ActionLink("LOG IN", "Login", "Account")</li>
-                    <li class="nav__buttons--signup">@Html.ActionLink("SIGN UP", "Register", "Account")</li>
-                </ul>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <div class="fixed-top">
+        <header class="topbar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+
+                    </div>
+
+                </div>
             </div>
-        </div>
+        </header>
+        <nav class="navbar navbar-expand-lg navbar-dark mx-background-top-linear" style="padding:17px 10px 10px 10px">
+            <div class="container">
+                <a class="navbar-brand" href="index.html" style="text-transform: uppercase;"> ONLINE COURSES</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+
+                    <ul class="navbar-nav ml-auto">
+
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">
+                                Naslovna
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">O nama</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Naši programi</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Obavijesti</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Kontakt</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link blue" asp-action="Login" asp-controller="Account">Login</a>
+                        </li>
+
+                        <li class="nav-item" style="margin-right: -70px;">
+                            <a class="nav-link blue" asp-action="Register" asp-controller="Account">Register</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </div>
     <div class="content">
         @RenderBody()
     </div>
-   
+
 </body>
 </html>
 
-@section Scripts {
-    <partial name="../Shared/_ValidationScriptsPartial" />
-}

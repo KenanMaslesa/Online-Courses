@@ -1,51 +1,67 @@
 ﻿@model RegisterVM
 @{
     ViewData["Title"] = "Register";
-    Layout = "_HomepageHeader";
+    Layout = "_LoginRegisterLayout";
 }
 
-<div class="registration">
-    <div class="registration__form">
-        <form asp-controller="Account" asp-action="Register" method="post">
-            <h4 class="registration__form--heading">Kreiraj nalog</h4>
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+                <form asp-controller="Account" asp-action="Register" method="post" class="login100-form validate-form">
+                    <span class="login100-form-title p-b-49">
+                        Registracija
+                    </span>
 
-            <div class="registration__form--group">
-                <label asp-for="FirstName" class="registration__form--label"></label>
-                <input asp-for="FirstName" class="registration__form--input" />
-                <span asp-validation-for="FirstName" class="registration__form--error"></span>
+                    <div class="wrap-input100 validate-input m-b-23" data-validate="Obavezno polje">
+                        <span class="label-input100">Ime</span>
+                        <input class="input100" type="text" asp-for="@Model.FirstName" placeholder="Unesite ime" autocomplete="off">
+                        <span class="focus-input100" data-symbol="&#xf206;"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-23" data-validate="Obavezno polje">
+                        <span class="label-input100">Prezime</span>
+                        <input class="input100" type="text" asp-for="@Model.LastName" placeholder="Unesite prezime" autocomplete="off">
+                        <span class="focus-input100" data-symbol="&#xf206;"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-23" data-validate="Obavezno polje">
+                        <span class="label-input100">Korisničko ime</span>
+                        <input class="input100" type="text" asp-for="@Model.UserName" placeholder="Unesite korisničko ime" autocomplete="off">
+                        <span class="focus-input100" data-symbol="&#xf206;"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-23" data-validate="Obavezno polje">
+                        <span class="label-input100">Email</span>
+                        <input class="input100" type="text" asp-for="@Model.Email" placeholder="Unesite email" autocomplete="off">
+                        <span class="focus-input100" data-symbol="&#xf206;"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input  m-b-23" data-validate="Obavezno polje">
+                        <span class="label-input100">Lozinka</span>
+                        <input class="input100" type="password" asp-for="@Model.Password" placeholder="Unesite lozinku">
+                        <span class="focus-input100" data-symbol="&#xf190;"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input  m-b-54" data-validate="Obavezno polje">
+                        <span class="label-input100">Potvrdite lozinku</span>
+                        <input class="input100" type="password" asp-for="@Model.ConfirmPassword" placeholder="Ponovo unesite lozinku">
+                        <span class="focus-input100" data-symbol="&#xf190;"></span>
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <div class="wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button class="login100-form-btn" type="submit">
+                                Registracija
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
             </div>
-            <div class="registration__form--group">
-                <label asp-for="LastName" class="registration__form--label"></label>
-                <input asp-for="LastName" class="registration__form--input" />
-                <span asp-validation-for="LastName" class="registration__form--error"></span>
-            </div>
-            <div class="registration__form--group">
-                <label asp-for="UserName" class="registration__form--label"></label>
-                <input asp-for="UserName" class="registration__form--input" />
-                <span asp-validation-for="UserName" class="registration__form--error"></span>
-            </div>
-            <div class="registration__form--group">
-                <label asp-for="Email" class="registration__form--label"></label>
-                <input asp-for="Email" class="registration__form--input" />
-                <span asp-validation-for="Email" class="registration__form--error"></span>
-            </div>
-            <div class="registration__form--group">
-                <label asp-for="Password" class="registration__form--label"></label>
-                <input asp-for="Password" class="registration__form--input" />
-                <span asp-validation-for="Password" class="registration__form--error"></span>
-            </div>
-            <div class="registration__form--group">
-                <label asp-for="ConfirmPassword" class="registration__form--label"></label>
-                <input asp-for="ConfirmPassword" class="registration__form--input" />
-                <span asp-validation-for="ConfirmPassword" class="registration__form--error"></span>
-            </div>
-            <button type="submit" class="registration__form--button">Registracija</button>
-        </form>
+        </div>
     </div>
-</div>
-<script>
 
-</script>
-@*@section Scripts {
-        <partial name="../Shared/_ValidationScriptsPartial" />
-    }*@
+
+    <div id="dropDownSelect1"></div>
+

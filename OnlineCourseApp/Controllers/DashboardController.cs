@@ -21,11 +21,6 @@ namespace OnlineCourseApp.Controllers
                 Permission = permission;
                 if (User.IsInRole(permission))
                 { 
-                    if(permission == "Student")
-                    {
-                        var courses = courseRepository.GetAllCourses();
-                        return View("StudentHome", courses);
-                    }
                     return View($"{permission}Home"); 
                 }
             }

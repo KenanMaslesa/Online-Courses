@@ -1,7 +1,5 @@
 ﻿<a href="@Url.Action("Home", "Dashboard")" class="@Html.IsActive("Dashboard", "Home")"><i class="icon-home"></i><span>Radna ploča</span></a>
 <a href="@Url.Action("Accounts","Account")" class="@Html.IsActive("Account", "Accounts")"><i class="icon-people"></i><span>Korisnički računi</span></a><!--brisanje racuna, dodjeljivanje uloga-->
-<a href="@Url.Action("CourseApplications","Course")" class="@Html.IsActive("Course", "CourseApplications")"><i class="icon-layers"></i><span>Prijave na kurseve</span></a>
-<a href="@Url.Action("Prikaz","CourseSection")" class="@Html.IsActive("CourseSection", "Prikaz")"><i class="icon-directions"></i><span>Kursevi</span></a>
 
 <ul class="nav navbar-nav">
     <li class="dropdown">
@@ -19,4 +17,3 @@
 <a href="#"><i class="icon-check"></i><span>Testovi</span></a>
 <a href="#"><i class="icon-speech"></i><span>Prijedlozi</span></a>
 <a href="#"><i class="icon-book-open"></i><span>Matična knjiga</span></a><!--studenti, profesori-->
-<a href="@Url.Action("Prikaz","City")" class="@Html.IsActive("City", "Prikaz")"><i class="fa fa-cog" aria-hidden="true"></i><span>Postavke</span></a>

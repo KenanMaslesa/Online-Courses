@@ -27,11 +27,4 @@
     <ProjectReference Include="..\OnlineCourseApp.Data\OnlineCourseApp.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Content Update="Views\CourseType\DodajForma.cshtml">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-  </ItemGroup>
-
 </Project>
