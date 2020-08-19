@@ -1,6 +1,6 @@
 ﻿<a href="@Url.Action("Home", "Dashboard", new { permission = "Admin"})" class="@Html.IsActive("Dashboard", "Home")"><i class="icon-home"></i><span>Radna ploča</span></a>
 <a href="@Url.Action("Accounts","Account")" class="@Html.IsActive("Account", "Accounts")"><i class="icon-people"></i><span>Korisnički računi</span></a><!--brisanje racuna, dodjeljivanje uloga-->
-<a href="@Url.Action("Index","Admin")" class="@Html.IsActive("Admin", "Index")"><i class="fa fa-star"></i><span>Korisničke permisije</span></a><!--brisanje racuna, dodjeljivanje uloga-->
+<a href="@Url.Action("Index","Admin")" class="@Html.IsActive("Admin", "Index")"><i class="fa fa-star"></i><span>Korisničke permisije</span></a><!--dodavanje, editovanje i brisanje korisničkih permisija-->
 
 <ul class="nav navbar-nav">
     <li class="dropdown">
