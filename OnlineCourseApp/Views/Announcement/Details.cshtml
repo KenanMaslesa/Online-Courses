@@ -1,0 +1,70 @@
+﻿@{ 
+    var path = HttpContextAccessor.HttpContext.Session.GetString("ref");
+    var permission = HttpContextAccessor.HttpContext.Session.GetString("permission");
+
+}
+@model AnnouncementsVM
+
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("Home", "Dashboard")">Radna ploča</a>
+            <i class="fa fa-arrow-circle-right"></i>
+        </li>
+        <li>
+            <a href="@Url.Action("Index", "Announcement")">Upravljanje obavijestima</a>
+            <i class="fa fa-arrow-circle-right"></i>
+        </li>
+        <li>
+            <span>@Model.Title</span>
+        </li>
+    </ul>
+</div>
+
+
+<div class="form-group">
+    <label class="c-white f-s-24">@Model.Title</label>
+</div>
+
+<div class="form-group bg-white" style="line-height: 22px; color: #777; border-radius:5px">
+    <table class="col-md-12">
+        <thead>
+            <tr style = "background: #eef4f7; height: 42px !important;">
+                <th colspan="1" class="vertical-middle">
+                    <span class="badge badge-info blue" style=" padding: 7px; margin-left: 15px; border-radius: 15px; font-size:12px">@Model.PostOwner</span>
+                </th>
+
+                <th colspan="1">
+                    <span style="padding-right:10px">
+                        @Model.RecordCreated
+                    </span>
+                <span>
+                    @{
+                        if (path == "dashboard")
+                        {
+                            <a href="@(Url.Action("Home", "Dashboard", new { permission = permission}))" class="btn btn-sm btn-outline-info">
+                                <i class="fa fa-arrow-left"></i> Nazad
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="@(Url.Action("Index", "Announcement"))" class="btn btn-sm btn-outline-info">
+                                <i class="fa fa-arrow-left"></i> Nazad
+                            </a>
+                        }
+
+                    }
+
+                </span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="color:#777">
+                <td style="padding: 10px 15px 10px 15px;">
+                    @Html.Raw(Model.Description)
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

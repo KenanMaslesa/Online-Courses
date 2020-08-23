@@ -339,12 +339,24 @@ header {
     cursor: pointer;
 }
 
-.white{
+a:hover {
+    text-decoration: none;
+}
+
+.bg-white{
     background: white !important;
+}
+.c-white{
+    color: white;
 }
 
 .w70{
     width: 70% !important;
 }
+
+.f-s-24{
+    font-size: 24px !important;
+}
+
 /*general*/
 

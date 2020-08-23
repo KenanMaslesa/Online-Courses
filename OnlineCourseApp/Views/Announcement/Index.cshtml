@@ -1,0 +1,47 @@
+﻿@model List<AnnouncementsVM>
+
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("Home", "Dashboard")">Radna ploča</a>
+            <i class="fa fa-arrow-circle-right"></i>
+        </li>
+        <li>
+            <span>Upravljanje obavijestima</span>
+        </li>
+    </ul>
+</div>
+
+<h1 class="page-title">
+    Obavijesti
+    <small>na sistemu</small>
+</h1>
+
+<table class="table table-striped bg-white">
+    <thead>
+        <tr>
+            <th>Naslov</th>
+            <th>Kratak sadržaj</th>
+            <th>Vlasnik</th>
+            <th>Datum dodavanja</th>
+            <th>Vidljivost</th>
+            <th>Opcije</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr class="cursor-pointer">
+            <td>@item.Title</td>
+            <td>@item.ShortDescription</td>
+            <td>@item.PostOwner</td>
+            <td>@item.RecordCreated</td>
+            <td>@item.AnnouncementFilter</td>
+            <td>
+                <a href="@Url.Action("Details", "Announcement", new { announcementID=item.ID})"> <i class="fa fa-eye cursor-pointer"></i></a>
+                <a href="@Url.Action("Delete", "Announcement", new { announcementID=item.ID})"> <i class="fa fa-trash cursor-pointer"></i></a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

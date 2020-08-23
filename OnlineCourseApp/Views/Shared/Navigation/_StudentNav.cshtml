@@ -1,6 +1,6 @@
 ﻿<a href="@Url.Action("Home", "Dashboard", new { permission = "Student"})" class="@Html.IsActive("Dashboard", "Home")"><i class="icon-home"></i><span>Radna ploča</span></a>
 <a href="@Url.Action("Index","InProgress")"><i class="icon-layers"></i><span>Moji kursevi</span></a>
-<a href="@Url.Action("Index","InProgress")"><i class="icon-notebook"></i><span>Obavijesti</span></a>
+<a href="@Url.Action("AnnouncementsForStudents","Announcement")" class="@Html.IsActive("Announcement", "AnnouncementsForStudents")"><i class="icon-notebook"></i><span>Obavijesti</span></a>
 <a href="@Url.Action("Index","InProgress")"><i class="icon-docs"></i><span>Nastavni materijal</span></a>
 <a href="@Url.Action("Index","InProgress")"><i class="icon-check"></i><span>Testovi</span></a>
 <a href="@Url.Action("Index","InProgress")"><i class="icon-speech"></i><span>Pošalji prijedlog</span></a>
