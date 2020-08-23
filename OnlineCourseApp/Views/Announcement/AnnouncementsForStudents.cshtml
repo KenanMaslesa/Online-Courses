@@ -1,0 +1,45 @@
+﻿@model List<AnnouncementsVM>
+
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("Home", "Dashboard")">Radna ploča</a>
+            <i class="fa fa-arrow-circle-right"></i>
+        </li>
+        <li>
+            <span>Upravljanje obavijestima</span>
+        </li>
+    </ul>
+</div>
+
+<h1 class="page-title">
+    Obavijesti
+    <small>na sistemu</small>
+</h1>
+
+<table class="table table-hover bg-white">
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <div>
+                    <a style="color:#337ab7; font-size:16px; text-align:center" href="@Url.Action("Details", "Announcement", new { announcementID=item.ID})">@item.Title</a>
+                    <span class="badge badge-info" style="font-size: 12px; font-weight: 600; font-style: italic; float:right; margin-left:10px">@item.PostOwner</span>
+                    <span class="badge badge-info" style="font-size: 12px; font-weight: 600; font-style: italic; float: right;">@item.RecordCreated</span>
+                    <div>
+                        <span>@item.ShortDescription</span>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+    }
+</table>
+<style>
+    .table td{
+        padding:1rem !important;
+    }
+</style>

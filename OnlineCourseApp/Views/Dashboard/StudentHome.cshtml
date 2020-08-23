@@ -1,2 +1,11 @@
-﻿<h1 class="text-center" style="        margin-top: 15%;
-        color: white">Student Home</h1>
+﻿@model DashboardVM
+<div class="row">
+    <div class="col-md-4 bg-white">
+        @await Html.PartialAsync("/Views/Announcement/_LastAnnouncements.cshtml", Model)
+    </div>
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
+

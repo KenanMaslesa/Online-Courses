@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewData["Title"] = "ProfessorHome";
+}
+@model DashboardVM
+<style>
+    .widget-title {
+        color: #2b4a5c;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .row {
+        margin-top: 30px;
+        margin-left: 0px;
+    }
+
+    .bg-white {
+        border-radius: 5px;
+        padding: 0px 5px 0px 5px;
+    }
+
+    .title {
+        color: #337ab7;
+        font-size: 16px;
+        text-align: center;
+    }
+       
+
+    .font {
+        font-size: 12px;
+        color: #7f7f7f;
+        font-weight: 600;
+        font-style: italic;
+    }
+
+    h5{
+        text-align: center;
+    }
+
+</style>
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th><h5>Zadnje obavijesti</h5></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Announcements)
+        {
+            <tr>
+                <td>
+                    <div>
+                        <a class="title" href="@Url.Action("Details", "Announcement", new { announcementID=item.ID})">@item.Title</a>
+                    </div>
+                    <div>
+                        <span class="font float-left">Objavio/la: @item.PostOwner</span>
+                        <span class="font float-right">@item.RecordCreated</span>
+                    </div>
+                </td>
+            </tr>
+        }
+        @if(Model.Announcements.Count() >= 5)
+        {
+            <tr>
+                <td class="text-center">
+                    <a href="@Url.Action("Index","Announcement")">Pogledajte sve obavijesti</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
