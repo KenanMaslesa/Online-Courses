@@ -340,7 +340,7 @@ header {
         color: #19B3D3;
     }
 
-/**/
+/*general*/
 .no-padding {
     padding: 0px !important;
 }
@@ -349,3 +349,29 @@ header {
     background: #19B3D3 !important;
     color: white !important;
 }
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.bg-white{
+    background: white !important;
+}
+.c-white{
+    color: white;
+}
+
+.w70{
+    width: 70% !important;
+}
+
+.f-s-24{
+    font-size: 24px !important;
+}
+
+/*general*/
+

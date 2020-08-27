@@ -33,6 +33,12 @@ namespace OnlineCourseApp.Controllers
             set { HttpContext.Session.SetString("permission", value); }
         }
 
-        
+        protected string Ref
+        {
+            get { return HttpContext.Session.GetString("ref"); }
+            set { HttpContext.Session.SetString("ref", value); }
+        }
+
+
     }
 }
