@@ -9,11 +9,6 @@ namespace OnlineCourseApp.Controllers
 {
     public class DashboardController : BaseController
     {
-        private ICourseRepository courseRepository;
-        public DashboardController(ICourseRepository courseRepository)
-        {
-            this.courseRepository = courseRepository;
-        }
         public IActionResult Home(string permission = null)
         {
             if (permission != null)
@@ -39,8 +34,7 @@ namespace OnlineCourseApp.Controllers
             else if (User.IsInRole("Student"))
             {
                 Permission = "Student";
-                var courses = courseRepository.GetAllCourses();
-                return View("StudentHome", courses);
+                return View("StudentHome");
             }
             else
                 return RedirectToAction("Login", "Account");

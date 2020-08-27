@@ -18,17 +18,14 @@ namespace OnlineCourseApp.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private IUserRepository _userRepository;
-        private IStudentRepository _studentRepository;
 
         public AccountController(UserManager<AppUser> userManager,
                                  SignInManager<AppUser> signInManager,
-                                 IUserRepository userRepository,
-                                 IStudentRepository studentRepository )
+                                 IUserRepository userRepository)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _userRepository = userRepository;
-            _studentRepository = studentRepository;
         }
 
         [HttpGet]
@@ -54,14 +51,7 @@ namespace OnlineCourseApp.Controllers
                 if (result.Succeeded)
                 {
                     user.LastLoginDate = DateTime.Now;
-                    var student = new Student
-                    {
-                        StudentIDNumber = Guid.NewGuid().ToString().Substring(0,8),
-                        User = user
-                    };
-                    _studentRepository.Add(student);
                     await _userManager.AddToRoleAsync(user, "Student");
-                    await _signInManager.SignInAsync(user, false);
                     return RedirectToAction("Index", "GlobalHomepage");
                 }
                 else

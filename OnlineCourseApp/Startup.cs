@@ -51,16 +51,8 @@ namespace OnlineCourseApp
                 options.Password.RequiredUniqueChars = 0;
             });
 
-            services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));   
-            services.AddScoped<IRegionRepository, RegionRepository>();
-            services.AddScoped<ICityRepository, CityRepository>();
+            services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<ICourseTypeRepository, CourseTypeRepository>();
-            services.AddScoped<ICourseTypeRepository2, CourseTypeRepository>();
-            services.AddScoped<ICourseSectionRepository, CourseSectionRepository>();
-            services.AddScoped<ICourseSectionRepository2, CourseSectionRepository>();
-            services.AddScoped<ICourseRepository, CourseRepository>();
-            services.AddScoped<IStudentRepository, StudentRepository>();
             services.AddControllersWithViews();
         }
 

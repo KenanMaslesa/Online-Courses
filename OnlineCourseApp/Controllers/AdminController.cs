@@ -34,6 +34,8 @@ namespace OnlineCourseApp.Controllers
         [HttpGet]
         public IActionResult CreateRole()
         {
+            var r = _roleManager.Roles.ToList();
+
             return PartialView();
         }
         [HttpPost]

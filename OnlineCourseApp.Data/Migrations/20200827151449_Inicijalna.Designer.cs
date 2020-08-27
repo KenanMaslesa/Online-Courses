@@ -10,8 +10,8 @@ using OnlineCourseApp.Data.EF;
 namespace OnlineCourseApp.Data.Migrations
 {
     [DbContext(typeof(MyDBContext))]
-    [Migration("20200814201152_courseParticipant")]
-    partial class courseParticipant
+    [Migration("20200827151449_Inicijalna")]
+    partial class Inicijalna
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -143,6 +143,83 @@ namespace OnlineCourseApp.Data.Migrations
                     b.HasIndex("UserID");
 
                     b.ToTable("UserLog");
+                });
+
+            modelBuilder.Entity("OnlineCourseApp.Data.Models.Announcement.Announcement", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AnnouncementOwnerID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("FilterType")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PostOwner")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("RecordCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("RecordUpdated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ShortDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(500)")
+                        .HasMaxLength(500);
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("AnnouncementOwnerID");
+
+                    b.ToTable("Announcement");
+                });
+
+            modelBuilder.Entity("OnlineCourseApp.Data.Models.Announcement.AnnouncementFilter", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AnnouncementID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CourseID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CourseSectionID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CourseTypeID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("RecordUpdated")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("AnnouncementID");
+
+                    b.HasIndex("CourseID");
+
+                    b.HasIndex("CourseSectionID");
+
+                    b.HasIndex("CourseTypeID");
+
+                    b.ToTable("AnnouncementFilter");
                 });
 
             modelBuilder.Entity("OnlineCourseApp.Data.Models.AppRole", b =>
@@ -297,31 +374,6 @@ namespace OnlineCourseApp.Data.Migrations
                     b.ToTable("Course");
                 });
 
-            modelBuilder.Entity("OnlineCourseApp.Data.Models.Basic.CourseParticipant", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CourseID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("RecordUpdated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("StudentID")
-                        .HasColumnType("int");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("CourseID");
-
-                    b.HasIndex("StudentID");
-
-                    b.ToTable("CourseParticipant");
-                });
-
             modelBuilder.Entity("OnlineCourseApp.Data.Models.Basic.CourseSection", b =>
                 {
                     b.Property<int>("ID")
@@ -372,73 +424,6 @@ namespace OnlineCourseApp.Data.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("CourseType");
-                });
-
-            modelBuilder.Entity("OnlineCourseApp.Data.Models.Basic.Student", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("RecordUpdated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("StudentIDNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Student");
-                });
-
-            modelBuilder.Entity("OnlineCourseApp.Data.Models.City", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("RecordUpdated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("RegionID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ZipCode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("RegionID");
-
-                    b.ToTable("City");
-                });
-
-            modelBuilder.Entity("OnlineCourseApp.Data.Models.Region", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("RecordUpdated")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Region");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -501,26 +486,41 @@ namespace OnlineCourseApp.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("OnlineCourseApp.Data.Models.Announcement.Announcement", b =>
+                {
+                    b.HasOne("OnlineCourseApp.Data.Models.AppUser", "AnnouncementOwner")
+                        .WithMany()
+                        .HasForeignKey("AnnouncementOwnerID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("OnlineCourseApp.Data.Models.Announcement.AnnouncementFilter", b =>
+                {
+                    b.HasOne("OnlineCourseApp.Data.Models.Announcement.Announcement", "Announcement")
+                        .WithMany("AnnouncementFilters")
+                        .HasForeignKey("AnnouncementID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("OnlineCourseApp.Data.Models.Basic.Course", "Course")
+                        .WithMany()
+                        .HasForeignKey("CourseID");
+
+                    b.HasOne("OnlineCourseApp.Data.Models.Basic.CourseSection", "CourseSection")
+                        .WithMany()
+                        .HasForeignKey("CourseSectionID");
+
+                    b.HasOne("OnlineCourseApp.Data.Models.Basic.CourseType", "CourseType")
+                        .WithMany()
+                        .HasForeignKey("CourseTypeID");
+                });
+
             modelBuilder.Entity("OnlineCourseApp.Data.Models.Basic.Course", b =>
                 {
                     b.HasOne("OnlineCourseApp.Data.Models.Basic.CourseSection", "CourseSection")
                         .WithMany("Courses")
                         .HasForeignKey("CourseSectionID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("OnlineCourseApp.Data.Models.Basic.CourseParticipant", b =>
-                {
-                    b.HasOne("OnlineCourseApp.Data.Models.Basic.Course", "Course")
-                        .WithMany("CourseParticipant")
-                        .HasForeignKey("CourseID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("OnlineCourseApp.Data.Models.Basic.Student", "Student")
-                        .WithMany()
-                        .HasForeignKey("StudentID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -534,22 +534,6 @@ namespace OnlineCourseApp.Data.Migrations
                     b.HasOne("OnlineCourseApp.Data.Models.Basic.CourseType", "CourseType")
                         .WithMany()
                         .HasForeignKey("CourseTypeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("OnlineCourseApp.Data.Models.Basic.Student", b =>
-                {
-                    b.HasOne("OnlineCourseApp.Data.Models.AppUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("OnlineCourseApp.Data.Models.City", b =>
-                {
-                    b.HasOne("OnlineCourseApp.Data.Models.Region", "Region")
-                        .WithMany()
-                        .HasForeignKey("RegionID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

@@ -11,8 +11,6 @@ namespace OnlineCourseApp.Data.EF
     {
         public MyDBContext(DbContextOptions<MyDBContext> options) : base(options)
         { } 
-        public DbSet<Region> Region { get; set; }
-        public DbSet<City> City { get; set; }
         public DbSet<Course> Course { get; set; }
         public DbSet<CourseType> CourseType { get; set; }
         public DbSet<CourseSection> CourseSection { get; set; }

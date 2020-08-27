@@ -172,6 +172,7 @@ header {
     }
 
     .sidebar a {
+        position: relative;
         color: #e3e4e8;
         display: block;
         width: 100%;
@@ -181,17 +182,31 @@ header {
         box-sizing: border-box;
         transition: 0.5s;
         transition-property: background;
+        z-index: 10;
     }
-
+        .sidebar a::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 3px;
+            background-color: #19B3D3;
+            transform: scaleY(0);
+            transition: transform .2s, width .4s cubic-bezier(1,0,0,1) .2s;
+        }
+        .sidebar a:hover::before {
+          transform: scaleY(1);
+          width: 100%;
+        }
         .sidebar a:hover {
-            background: #19B3D3;
             text-decoration: none;
             color: #fff;
         }
 
-    .sidebar i {
-        padding-right: 10px;
-    }
+        .sidebar i {
+            padding-right: 10px;
+        }
 
 .footer {
     background: #e3e4e8;

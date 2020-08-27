@@ -7,7 +7,7 @@ using System.Text;
 
 namespace OnlineCourseApp.Data.Models.Basic
 {
-    public class Course:BaseEntity
+    public class Course : BaseEntity
     {
         public string CourseName { get; set; }
         public DateTime Start { get; set; }
@@ -19,7 +19,7 @@ namespace OnlineCourseApp.Data.Models.Basic
         public virtual CourseSection CourseSection { get; set; }
         public bool EnableCourseSessions { get; set; }
         public bool EnableVideoRecording { get; set; }
-        public  virtual List<CourseParticipant> CourseParticipant { get; set; }
+        //public  virtual List<CourseParticipant> CourseParticipant { get; set; }
 
     }
 }
