@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OnlineCourseApp.Data.DataRepository;
+using OnlineCourseApp.Data.DataRepository.IDataRepository;
 using OnlineCourseApp.Data.DataRepository.OnlineCourseApp.Data.DataRepository;
 using OnlineCourseApp.Data.EF;
 using OnlineCourseApp.Data.Models;
@@ -53,6 +54,7 @@ namespace OnlineCourseApp
 
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IAnnouncementRepository, AnnouncementRepository>();
             services.AddControllersWithViews();
         }
 

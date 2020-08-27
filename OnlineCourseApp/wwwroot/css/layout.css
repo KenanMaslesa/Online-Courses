@@ -193,6 +193,7 @@ header {
             width: 3px;
             background-color: #19B3D3;
             transform: scaleY(0);
+            opacity: 0.5;
             transition: transform .2s, width .4s cubic-bezier(1,0,0,1) .2s;
         }
         .sidebar a:hover::before {
