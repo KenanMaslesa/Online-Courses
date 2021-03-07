@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using OnlineCourseApp.Data.Models;
@@ -13,6 +14,7 @@ using OnlineCourseApp.ViewModels;
 
 namespace OnlineCourseApp.Controllers
 {
+
     public class AccountController : BaseController
     {
         private readonly UserManager<AppUser> _userManager;
@@ -96,6 +98,8 @@ namespace OnlineCourseApp.Controllers
             return View(model);
         }
 
+        [Authorize(Roles = "Admin")]
+
         [HttpGet]
         public async Task<IActionResult> LogAsUser(string username, string password)
         {
@@ -113,6 +117,8 @@ namespace OnlineCourseApp.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "GlobalHomepage");
         }
+
+        [Authorize(Roles = "Admin")]
 
         [HttpGet]
         public async Task<IActionResult> Accounts(string username=null, string name=null, string email=null)
@@ -145,6 +151,13 @@ namespace OnlineCourseApp.Controllers
                 ErrorMessage = "Ne postoje korisnici prema zadanom filteru.";
 
             return View(model);
+        }
+
+        [Authorize(Roles = "Admin")]
+
+        public ActionResult Map()
+        {
+            return View();
         }
     }
 }

@@ -39,6 +39,7 @@ namespace OnlineCourseApp
                 .AddEntityFrameworkStores<MyDBContext>()
                 .AddDefaultTokenProviders();
 
+
             services.AddDistributedMemoryCache(); 
             services.AddSession();
 
@@ -76,8 +77,8 @@ namespace OnlineCourseApp
 
             app.UseRouting();
 
-            app.UseAuthorization();
             app.UseAuthentication();
+            app.UseAuthorization();
             app.UseSession();
             //app.UseEndpoints(endpoints =>
             //{

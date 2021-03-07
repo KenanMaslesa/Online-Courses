@@ -107,6 +107,7 @@ header {
     background-image: url(/img/bg-03.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
 }
 
 .left_area h3 {
@@ -195,6 +196,7 @@ header {
             transform: scaleY(0);
             opacity: 0.5;
             transition: transform .2s, width .4s cubic-bezier(1,0,0,1) .2s;
+            z-index: -1;
         }
         .sidebar a:hover::before {
           transform: scaleY(1);

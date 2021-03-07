@@ -51,11 +51,6 @@ header {
             margin-left: 3px;
         }
 
-        ul > span {
-            background: lightgray;
-            padding: 11px 18px 9px 19px;
-        }
-
         .dropdown-toggle::after {
             margin-left: -.255em;
         }
@@ -65,6 +60,7 @@ header {
             left: -135px !important;
             box-shadow: 10px 10px 10px 0px lightblue;
             padding-bottom: 0px;
+            padding-top: 0px;
             transition: 1s;
 
             a {
@@ -81,6 +77,10 @@ header {
                 text-align: center;
                 padding: 5px;
                 cursor: pointer;
+
+                &.title {
+                    background: lightgray;
+                }
 
                 &:first-of-type {
                     margin-top: 5px;
@@ -106,6 +106,7 @@ header {
     background-size: cover;
     min-height: 100%;
     transition: 0.5s;
+    position: relative;
 }
 
 .left_area {

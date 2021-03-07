@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -44,12 +45,16 @@ namespace OnlineCourseApp.Controllers
             return View(announcements);
         }
 
+        [Authorize(Roles = "Admin, Student")]
+
         public IActionResult AnnouncementsForStudents()
         {
             Ref = "AnnouncementsForStudents";
             List<AnnouncementsVM> announcements = _announcementRepository.GetAllAnnouncements(AnnouncementFilterType.AllStudents);
             return View(announcements);
         }
+
+        [Authorize(Roles = "Admin, Profesor")]
 
         public async Task<IActionResult> AnnouncementsForProfessors()
         {
@@ -58,6 +63,9 @@ namespace OnlineCourseApp.Controllers
             List<AnnouncementsVM> announcements = _announcementRepository.GetAllAnnouncementsForProfessor(user.Id);
             return View(announcements);
         }
+
+        [Authorize(Roles = "Admin, Profesor")]
+
         public IActionResult New()
         {
             AnnouncementNewVM model = new AnnouncementNewVM()
@@ -92,6 +100,8 @@ namespace OnlineCourseApp.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Admin, Profesor")]
+
         public IActionResult Details(int announcementID)
         {
             Announcement x = _announcementRepository.GetById(announcementID);
@@ -108,6 +118,8 @@ namespace OnlineCourseApp.Controllers
             };
             return View(model);
         }
+
+        [Authorize(Roles = "Admin, Profesor")]
 
         public IActionResult Delete(int announcementID)
         {
