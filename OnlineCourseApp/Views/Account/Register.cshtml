@@ -4,63 +4,71 @@
     Layout = "_LoginRegisterLayout";
 }
 
-    <div class="limiter">
-        <div class="container-login100">
-            <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-                <form asp-controller="Account" asp-action="Register" method="post" class="login100-form validate-form">
-                    <span class="login100-form-title p-b-49">
-                        Registracija
-                    </span>
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+            <form asp-controller="Account" asp-action="Register" method="post" class="login100-form validate-form">
+                <span class="login100-form-title p-b-49">
+                    Registracija
+                </span>
 
-                    <div class="wrap-input100 validate-input m-b-23" data-validate="Obavezno polje">
-                        <span class="label-input100">Ime</span>
-                        <input class="input100" type="text" asp-for="@Model.FirstName" placeholder="Unesite ime" autocomplete="off">
-                        <span class="focus-input100" data-symbol="&#xf206;"></span>
+                <div class="wrap-input100 validate-input m-b-23" data-validate="Obavezno polje">
+                    <span class="label-input100">Ime</span>
+                    <input class="input100" type="text" asp-for="@Model.FirstName" placeholder="Unesite ime" autocomplete="off">
+                    <span class="focus-input100" data-symbol="&#xf206;"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-23" data-validate="Obavezno polje">
+                    <span class="label-input100">Prezime</span>
+                    <input class="input100" type="text" asp-for="@Model.LastName" placeholder="Unesite prezime" autocomplete="off">
+                    <span class="focus-input100" data-symbol="&#xf206;"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-23" data-validate="Obavezno polje">
+                    <span class="label-input100">Korisničko ime</span>
+                    <input class="input100" type="text" asp-for="@Model.UserName" placeholder="Unesite korisničko ime" autocomplete="off">
+                    <span class="focus-input100" data-symbol="&#xf206;"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-23" data-validate="Obavezno polje">
+                    <span class="label-input100">Email</span>
+                    <input class="input100" type="text" asp-for="@Model.Email" placeholder="Unesite email" autocomplete="off">
+                    <span class="focus-input100" data-symbol="&#xf206;"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input  m-b-23" data-validate="Obavezno polje">
+                    <span class="label-input100">Lozinka</span>
+                    <input class="input100" type="password" asp-for="@Model.Password" placeholder="Unesite lozinku">
+                    <span class="focus-input100" data-symbol="&#xf190;"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input  m-b-54" data-validate="Obavezno polje">
+                    <span class="label-input100">Potvrdite lozinku</span>
+                    <input class="input100" type="password" asp-for="@Model.ConfirmPassword" placeholder="Ponovo unesite lozinku">
+                    <span class="focus-input100" data-symbol="&#xf190;"></span>
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+                        <button class="login100-form-btn" type="submit">
+                            Registracija
+                        </button>
                     </div>
+                </div>
 
-                    <div class="wrap-input100 validate-input m-b-23" data-validate="Obavezno polje">
-                        <span class="label-input100">Prezime</span>
-                        <input class="input100" type="text" asp-for="@Model.LastName" placeholder="Unesite prezime" autocomplete="off">
-                        <span class="focus-input100" data-symbol="&#xf206;"></span>
-                    </div>
-
-                    <div class="wrap-input100 validate-input m-b-23" data-validate="Obavezno polje">
-                        <span class="label-input100">Korisničko ime</span>
-                        <input class="input100" type="text" asp-for="@Model.UserName" placeholder="Unesite korisničko ime" autocomplete="off">
-                        <span class="focus-input100" data-symbol="&#xf206;"></span>
-                    </div>
-
-                    <div class="wrap-input100 validate-input m-b-23" data-validate="Obavezno polje">
-                        <span class="label-input100">Email</span>
-                        <input class="input100" type="text" asp-for="@Model.Email" placeholder="Unesite email" autocomplete="off">
-                        <span class="focus-input100" data-symbol="&#xf206;"></span>
-                    </div>
-
-                    <div class="wrap-input100 validate-input  m-b-23" data-validate="Obavezno polje">
-                        <span class="label-input100">Lozinka</span>
-                        <input class="input100" type="password" asp-for="@Model.Password" placeholder="Unesite lozinku">
-                        <span class="focus-input100" data-symbol="&#xf190;"></span>
-                    </div>
-
-                    <div class="wrap-input100 validate-input  m-b-54" data-validate="Obavezno polje">
-                        <span class="label-input100">Potvrdite lozinku</span>
-                        <input class="input100" type="password" asp-for="@Model.ConfirmPassword" placeholder="Ponovo unesite lozinku">
-                        <span class="focus-input100" data-symbol="&#xf190;"></span>
-                    </div>
-
-                    <div class="container-login100-form-btn">
-                        <div class="wrap-login100-form-btn">
-                            <div class="login100-form-bgbtn"></div>
-                            <button class="login100-form-btn" type="submit">
-                                Registracija
-                            </button>
-                        </div>
-                    </div>
-
-                </form>
-            </div>
+            </form>
         </div>
     </div>
+
+    <div class="svg-top">
+        <object data="~/img/svg/blog-list-dots.svg" type="image/svg+xml"></object>
+    </div>
+
+    <div class="svg-bottom">
+        <object data="~/img/svg/blog-list-dots.svg" type="image/svg+xml"></object>
+    </div>
+</div>
 
 
     <div id="dropDownSelect1"></div>

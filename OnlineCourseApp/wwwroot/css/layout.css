@@ -104,7 +104,7 @@ header {
     background-size: cover;
     min-height: 100%;
     transition: 0.5s;
-    background-image: url(/img/bg-03.jpg);
+    background: linear-gradient(#0075b0, #0174ae);
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
@@ -375,6 +375,4 @@ a:hover {
 .f-s-24{
     font-size: 24px !important;
 }
-
-/*general*/
 

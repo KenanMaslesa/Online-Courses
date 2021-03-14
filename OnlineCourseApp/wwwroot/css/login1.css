@@ -196,17 +196,7 @@ iframe {
 }
 
     .txt2:hover {
-        border-radius: 10px;
-        padding: 4px;
-        padding-left: 18px;
-        padding-right: 18px;
-        background: -webkit-linear-gradient(right, aqua, #49bde6, #49bde6, aqua);
-        background: -o-linear-gradient(right, aqua, #49bde6, #49bde6, aqua);
-        background: -moz-linear-gradient(right, aqua, #49bde6, #49bde6, aqua);
-        background: linear-gradient(right, aqua, #49bde6, #49bde6, aqua);
-        color: white;
-        transition: all;
-        transition-duration: 0.7s;
+        color: #49bde6;
     }
 
 .bg1 {
@@ -245,7 +235,7 @@ iframe {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-image: url('/img/bg-03.jpg')
+    background: linear-gradient(#0075b0,#0174ae);
 }
 
 .wrap-login100 {
@@ -253,6 +243,7 @@ iframe {
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
+    z-index: 9;
 }
 
 
@@ -518,6 +509,29 @@ iframe {
         color: #fff;
         background-color: #333333;
     }
+
+.svg-top {
+    height: 1240px;
+    max-width: 620px;
+    top: -300px;
+    right: 0;
+    opacity: 0.03;
+    position: fixed;
+    width: 100%;
+}
+
+.svg-bottom {
+    height: 600px;
+    max-width: 620px;
+    bottom: 0;
+    opacity: 0.03;
+    position: fixed;
+    width: 100%;
+    transform: scaleX(-1);
+    left: 0;
+    overflow: hidden;
+}
+
 
 /*//////////////////////////////////////////////////////////////////
 [ Responsive ]*/
